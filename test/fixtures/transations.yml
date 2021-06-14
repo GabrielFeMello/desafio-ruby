@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 1
+  date: 2021-06-14
+  value: 1.5
+  representative: one
+  store: one
+  card: MyString
+  time: 2021-06-14 18:20:17
+
+two:
+  type: 1
+  date: 2021-06-14
+  value: 1.5
+  representative: two
+  store: two
+  card: MyString
+  time: 2021-06-14 18:20:17

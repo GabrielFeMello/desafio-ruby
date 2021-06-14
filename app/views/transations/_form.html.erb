@@ -1,0 +1,52 @@
+<%= form_with(model: transation, local: true) do |form| %>
+  <% if transation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transation.errors.count, "error") %> prohibited this transation from being saved:</h2>
+
+      <ul>
+      <% transation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.number_field :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :representative_id %>
+    <%= form.text_field :representative_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :store_id %>
+    <%= form.text_field :store_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :card %>
+    <%= form.text_field :card %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.datetime_select :time %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
