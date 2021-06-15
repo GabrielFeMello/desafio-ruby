@@ -8,6 +8,11 @@ class StoresController < ApplicationController
 
   # GET /stores/1 or /stores/1.json
   def show
+    @transations = @store.transations.joins("left join representatives on representatives.id = transations.representative_id").select("transations.id,transations.transation_type, transations.date, transations.card, transations.time, transations.value,representatives.name as representative_name, representatives.id as representative_id")
+
+    @representatives = @store.transations.joins("left join representatives on representatives.id = transations.representative_id").select("representatives.id as id, representatives.id as representative_id, representatives.name as name,representatives.document as document").group("representatives.id, representatives.name,representatives.document ")
+
+    @representatives = @representatives
   end
 
   # GET /stores/new

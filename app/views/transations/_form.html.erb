@@ -1,4 +1,4 @@
-<%= form_with(model: transation, local: true) do |form| %>
+<%= form_with(model: transation, multipart: true, local: true) do |form| %>
   <% if transation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(transation.errors.count, "error") %> prohibited this transation from being saved:</h2>
@@ -12,13 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.number_field :type %>
+    <%= form.label :transation_type %>
+
+    <%= form.select :transation_type, [["Débito (+)", 1],
+    ["Boleto (-)", 2],
+    ["Financiamento (-)", 3],
+    ["Crédito (+)", 4],
+    ["Recebimento Empréstimo (+)", 5],
+    ["Vendas (+)", 6],
+    ["Recebimento TED (+)", 7],
+    ["Recebimento DOC (+)", 8],
+    ["Aluguel (-)", 9]] %>
+
+    
   </div>
 
-  <div class="field">
+  <div class="field data_fields">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.datetime_select :date %>
   </div>
 
   <div class="field">
@@ -27,13 +38,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :representative_id %>
-    <%= form.text_field :representative_id %>
+    <%= form.label :store_id %>
+    <%= form.select :store_id, @stores.map{|store| [store.name, store.id]} %>
   </div>
 
   <div class="field">
-    <%= form.label :store_id %>
-    <%= form.text_field :store_id %>
+    <%= form.label :representative_id %>
+    <%= form.select :representative_id, @representatives.map{|rep| [rep.name, rep.id]} %>
   </div>
 
   <div class="field">
@@ -41,10 +52,6 @@
     <%= form.text_field :card %>
   </div>
 
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.datetime_select :time %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

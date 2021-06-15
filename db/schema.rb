@@ -10,25 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_212017) do
+ActiveRecord::Schema.define(version: 2021_06_15_164802) do
 
   create_table "representatives", force: :cascade do |t|
     t.string "name"
     t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "document"
     t.index ["store_id"], name: "index_representatives_on_store_id"
   end
 
   create_table "stores", force: :cascade do |t|
     t.string "name"
-    t.string "string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "transations", force: :cascade do |t|
-    t.integer "type"
+    t.integer "transation_type"
     t.date "date"
     t.float "value"
     t.integer "representative_id"

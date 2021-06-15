@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "transations#index"
 
   post 'transations/cnab_upload'
   resources :transations

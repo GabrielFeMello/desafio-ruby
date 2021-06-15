@@ -1,14 +1,71 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @store.name %>
-</p>
+</h1>
 
-<p>
-  <strong>String:</strong>
-  <%= @store.string %>
-</p>
+<h2>
+Transações
+</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Representante</th>
+      <th>Tipo</th>
+      <th>Data</th>
+      <th>Valor</th>
+      <th>Cartão</th>
+      <th></th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_store_path(@store) %> |
+  <tbody>
+    <% @transations.each do |transation| %>
+      <tr>
+      
+        <td><%= transation.representative_name %> (<%= transation.representative_cpf %>)</td>
+
+        <td><%= transation.type_name %></td>
+        <td><%= transation.date.strftime("%d/%m/%Y") %> às <%= Time.at(transation.time).to_s(:time) %></td>
+        <td><div style="color: <%== transation.type_call %>">R$ <%= transation.value %></div></td>
+        <td><%= transation.card %></td>
+        <td><%= link_to 'Destroy', transation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+    <tr style="background-color: whitesmoke; ">
+      
+      <td colspan="3" style="text-align: right"><strong>Saldo Total:</strong></td>
+      <td colspan="4">R$ <%= @store.get_full_value %></td>
+      
+    </tr>
+  </tbody>
+</table>
+
+<h2>
+Representantes
+</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Representante</th>
+      <th>Documento</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @representatives.each do |representative| %>
+      <tr>
+      
+        <td><%= representative.name %></td>
+        <td><%= representative.representative_cpf %></td>
+        <td><%= link_to 'Destroy', representative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+
 <%= link_to 'Back', stores_path %>

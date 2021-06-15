@@ -13,3 +13,84 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background: rgb(248, 252, 255);
+  text-align: center;
+}
+
+.navigation a {
+  border: none;
+  color: #0982ca;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0px 15px;
+  padding: 10px 5px;
+  width: 100px;
+  min-width: 100px;
+}
+
+form input,
+form select {
+  width: 225px;
+}
+form .data_fields select {
+  width: 75px;
+}
+form .data_time select {
+  width: 75px;
+}
+button,
+input[type="submit"] {
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: none;
+  background: #088ae6;
+  border-radius: 0px;
+  color: white;
+  padding: 5px 15px;
+  margin: 1em;
+  box-shadow: 0px 3px 3px rgb(0 0 0 / 10%);
+}
+button:hover,
+input[type="submit"]:hover {
+  cursor: pointer;
+  background: #0890f1;
+  box-shadow: 0px 5px 5px rgb(0 0 0 / 10%);
+}
+a {
+  text-decoration: none;
+  color: #088ae6;
+}
+a:hover {
+  text-decoration: underline;
+  color: #0890f1;
+  background-color: white;
+}
+
+.send_transition {
+  color: gray;
+  border: 2px solid whitesmoke;
+  width: auto;
+  box-sizing: border-box;
+  margin: auto;
+  display: inline-block;
+  padding: 25px 25px 0px;
+  margin-bottom: 15px;
+}
+.sender div {
+  display: inline-block;
+}
+
+body table {
+  text-align: left;
+  margin: auto;
+}
+table,
+table th {
+  font-size: 12px;
+  padding: 5px 15px;
+}
+table td {
+  padding: 5px 15px;
+}
