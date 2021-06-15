@@ -1,3 +1,12 @@
+# Configuração de ambiente
+Baixe os arquivos em uma pasta local
+
+Rode o migrate para atualizar seu banco com as tabelas que foram criadas e as migrations de reparação que foram feitas posteriormente.
+Rode o bundle install para atualizar as gems, principalmente o rails-rspec usado para automação de testes.
+
+A aplicação aceita, por hora, arquivos CNAB com até 83 caracteres, na formatação definida pelo desafio-ruby.
+
+
 # Desafio programação - para vaga Back-end
 
 Por favor leiam este documento do começo ao fim, com muita atenção.
